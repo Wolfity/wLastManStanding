@@ -1,0 +1,64 @@
+join-npc-name: "&7Click to join!"
+WorldSpawn:
+
+kits:
+  fisherman:
+    icon: "FISHING_ROD"
+    icon-name: "&cFisherman Kit"
+    items:
+      '1':
+        material: "DIAMOND_SWORD"
+        name: "&bFisherman Sword"
+        amount: 1
+      '2':
+        material: "DIAMOND_HELMET"
+        name: "&bFisherman Helmet"
+        amount: 1
+      '3':
+        material: "IRON_CHESTPLATE"
+        name: "&bFisherman Chestplate"
+        amount: 1
+      '4':
+        material: "IRON_LEGGINGS"
+        name: "&bFisherman Leggings"
+        amount: 1
+      '5':
+        material: "DIAMOND_BOOTS"
+        name: "&bFisherman Boots"
+        amount: 1
+      '6':
+        material: "FISHING_ROD"
+        name: "&bFisherman Rod"
+        amount: 1
+      '7':
+        material: "GOLDEN_APPLE"
+        name: "Golden Apple"
+        amount: 16
+  diamond:
+    icon: "DIAMOND"
+    icon-name: "&cDiamond Kit"
+    items:
+      '1':
+        material: "IRON_SWORD"
+        name: "&bDiamond Sword"
+        amount: 1
+      '2':
+        material: "DIAMOND_HELMET"
+        name: "&bFisherman Helmet"
+        amount: 1
+      '3':
+        material: "DIAMOND_CHESTPLATE"
+        name: "&bDiamond Chestplate"
+        amount: 1
+      '4':
+        material: "DIAMOND_LEGGINGS"
+        name: "&bDiamond Leggings"
+        amount: 1
+      '5':
+        material: "DIAMOND_BOOTS"
+        name: "&bDiamond Boots"
+        amount: 1
+      '6':
+        material: "GOLDEN_APPLE"
+        name: "Golden Apple"
+        amount: 16

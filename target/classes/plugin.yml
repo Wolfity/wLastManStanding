@@ -1,0 +1,12 @@
+name: wLastManStanding
+main: me.wolf.wlastmanstanding.LastManStandingPlugin
+version: 1.0.0
+description: Last man standing Games plugin
+author: ${project.author}
+api-version: 1.13
+
+depend:
+  - Citizens
+
+
+
