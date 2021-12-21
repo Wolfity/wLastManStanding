@@ -5,7 +5,6 @@ import me.wolf.wlastmanstanding.LastManStandingPlugin;
 import me.wolf.wlastmanstanding.arena.Arena;
 import me.wolf.wlastmanstanding.arena.ArenaState;
 import me.wolf.wlastmanstanding.constants.Constants;
-import me.wolf.wlastmanstanding.kits.Kit;
 import me.wolf.wlastmanstanding.player.LMSPlayer;
 import me.wolf.wlastmanstanding.utils.Utils;
 import net.citizensnpcs.api.event.NPCRightClickEvent;
@@ -59,12 +58,14 @@ public class GameListeners implements Listener {
         final Player player = (Player) event.getWhoClicked();
         final ItemStack clicked = event.getCurrentItem();
         if (event.getView().getTitle().equalsIgnoreCase(Utils.colorize("&bKits Menu"))) {
-
-            plugin.getLmsPlayers().get(player.getUniqueId()).getKitList().forEach(kit -> {
+            final LMSPlayer lmsPlayer = plugin.getLmsPlayers().get(player.getUniqueId());
+            plugin.getKitManager().getKits().forEach(kit -> {
                 final ItemStack icon = Utils.createItem(kit.getIcon(), kit.getDisplay(), 1);
                 kit.setActive(clicked.equals(icon));
+                lmsPlayer.setKit(kit);
+                player.sendMessage(Constants.Messages.KIT_SELECTED.replace("{kit}", kit.getName()));
+
             });
-            plugin.getLmsPlayers().get(player.getUniqueId()).getKitList().stream().filter(Kit::isActive).forEach(kit -> player.sendMessage(Constants.Messages.KIT_SELECTED.replace("{kit}", kit.getName())));
 
             event.setCancelled(true);
         }

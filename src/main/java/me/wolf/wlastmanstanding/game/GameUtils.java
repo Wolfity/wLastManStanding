@@ -29,7 +29,7 @@ public class GameUtils {
     public void giveKitMenu(final Player player) {
         final Inventory menu = Bukkit.createInventory(null, 27, Utils.colorize("&bKits Menu"));
         if (plugin.getLmsPlayers().isEmpty()) return;
-        plugin.getLmsPlayers().get(player.getUniqueId()).getKitList().forEach(kit -> {
+        plugin.getKitManager().getKits().forEach(kit -> {
             final ItemStack icon = Utils.createItem(kit.getIcon(), Utils.colorize(kit.getDisplay()), 1);
             menu.addItem(icon);
         });
@@ -40,7 +40,7 @@ public class GameUtils {
         player.getInventory().clear();
         player.setHealth(20);
         player.setSaturation(20);
-        plugin.getLmsPlayers().get(player.getUniqueId()).getKitList().stream().filter(Kit::isActive).forEach(kit -> {
+        plugin.getKitManager().getKits().stream().filter(Kit::isActive).forEach(kit -> {
             final ItemStack[] kitItems = kit.getKitItems().stream().map(ItemStack::new).toArray(ItemStack[]::new);
             player.getInventory().addItem(kitItems);
         });

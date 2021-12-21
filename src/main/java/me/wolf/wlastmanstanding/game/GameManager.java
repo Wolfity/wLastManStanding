@@ -183,7 +183,7 @@ public class GameManager {
                     setGameState(GameState.RECRUITING, arena);
                 }
                 if (arena.getArenaMembers().size() <= arena.getArenaConfig().getInt("max-players")) {
-                    plugin.getLmsPlayers().put(player.getUniqueId(), new LMSPlayer(player.getUniqueId(), plugin));
+                    plugin.getLmsPlayers().put(player.getUniqueId(), new LMSPlayer(player.getUniqueId()));
                     final LMSPlayer lmsPlayer = plugin.getLmsPlayers().get(player.getUniqueId());
                     arena.getArenaMembers().add(lmsPlayer);
 

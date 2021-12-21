@@ -7,6 +7,7 @@ import me.wolf.wlastmanstanding.command.impl.LastManStandingCommand;
 import me.wolf.wlastmanstanding.game.GameListeners;
 import me.wolf.wlastmanstanding.game.GameManager;
 import me.wolf.wlastmanstanding.game.GameUtils;
+import me.wolf.wlastmanstanding.kits.KitManager;
 import me.wolf.wlastmanstanding.listeners.*;
 import me.wolf.wlastmanstanding.player.LMSPlayer;
 import me.wolf.wlastmanstanding.scoreboard.Scoreboard;
@@ -29,9 +30,11 @@ public class LastManStandingPlugin extends JavaPlugin {
     private Scoreboard scoreboard;
     private GameUtils gameUtils;
     private GameManager gameManager;
+    private KitManager kitManager;
     private final Set<Arena> arenas = new HashSet<>();
     private final Map<UUID, LMSPlayer> lmsPlayers = new HashMap<>();
     private File folder;
+
 
     @Override
     public void onEnable() {
@@ -82,6 +85,9 @@ public class LastManStandingPlugin extends JavaPlugin {
         this.gameManager = new GameManager(this);
         this.scoreboard = new Scoreboard(this);
         this.gameUtils = new GameUtils(this);
+        this.kitManager = new KitManager(this);
+
+        kitManager.loadKits();
     }
 
     private void registerCommand(final Command command) {
